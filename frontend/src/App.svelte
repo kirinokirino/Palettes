@@ -1,7 +1,9 @@
 <script lang="ts">
   import Palette from './lib/Palette.svelte'
   import colors from './lib/colors.json'
+  import {onMount} from 'svelte'
 
+  const limit = 100;
   let palettes: Palette[] = [];
   let categories = Object.keys(colors);
   for (let [key, value] of Object.entries(colors)) {
@@ -10,9 +12,10 @@
         category: key,
         ...palette
       } as Palette)
-      if (palettes.length > 100) break;
+      if (palettes.length > limit) break;
     }
   }
+
     interface Palette {
         category?: string;
         name: string;
@@ -42,4 +45,7 @@
 </main>
 
 <style>
+  main {
+    max-width: 600px;
+  }
 </style>
