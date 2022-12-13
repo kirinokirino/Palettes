@@ -10,11 +10,12 @@
 </script>
 
 <div style:margin-bottom="2em">
-    <strong>{palette.name}</strong> by <em>{palette.author}</em> <small>{palette.category}</small>
+    <strong>{palette.name}</strong> by <em>{palette.author}</em> <small>[{palette.category}]</small>
     <br>
     {#each palette.colors as color}
         <Color color="#{color}"/>
     {/each}
+    <hr>
 </div>
 
 <style>

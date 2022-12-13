@@ -12,7 +12,6 @@
         category: key,
         ...palette
       } as Palette)
-      if (palettes.length > limit) break;
     }
   }
 
@@ -24,7 +23,7 @@
     }
 
     let filter = "Any";
-    $: filteredPalettes = palettes.filter((palette) => {return palette.category == filter || filter == "Any"})
+    $: filteredPalettes = palettes.filter((palette) => {return palette.category == filter || filter == "Any"}).slice(0, limit);
 </script>
 
 <main>
@@ -38,13 +37,16 @@
         {/each}
       </select>
     </div>
-    {#each filteredPalettes as palette (palette.name)}
+    {#each filteredPalettes as palette (palette.name + palette.author)}
       <Palette palette={palette}/>
     {/each}
   </section>
 </main>
 
 <style>
+  :global() {
+    font-family: "Victor Mono", "Courier New", monospace, sans-serif;
+  }
   main {
     max-width: 600px;
   }
