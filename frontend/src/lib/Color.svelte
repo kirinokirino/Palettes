@@ -20,6 +20,7 @@
 
 <style>
 span {
+        font-size: 0.8em;
         display: inline-block;
         width: 4em;
         padding: 0.2em;

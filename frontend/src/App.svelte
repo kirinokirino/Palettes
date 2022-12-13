@@ -27,7 +27,7 @@
 </script>
 
 <main>
-  <section>
+<aside>
     <div>
       <label for="filter">filter: </label>
       <select id="filter" bind:value={filter}>
@@ -37,6 +37,9 @@
         {/each}
       </select>
     </div>
+
+</aside>
+  <section>
     {#each filteredPalettes as palette (palette.name + palette.author)}
       <Palette palette={palette}/>
     {/each}
@@ -44,10 +47,10 @@
 </main>
 
 <style>
-  :global() {
-    font-family: "Victor Mono", "Courier New", monospace, sans-serif;
-  }
   main {
     max-width: 600px;
+  }
+  aside {
+    background-color: #303030;
   }
 </style>
